@@ -1,6 +1,8 @@
 import React from 'react'
 import { Grid, GridItem, Show } from '@chakra-ui/react'
 import NavBar from "./components/NavBar" 
+import BurgerMenuSwitch from "./components/BurgerSwitch"
+
 
 function App() {
   
@@ -13,16 +15,16 @@ function App() {
       }}
       >
 
-      <GridItem gridArea="nav" bg="tomato">
+      <GridItem gridArea="nav">
       <NavBar/>
       </GridItem>
       <Show above="lg">
       <GridItem gridArea="aside" bg="green">
-      aside
+      <BurgerMenuSwitch/>
       </GridItem>
       </Show>
       <GridItem gridArea="main" bg="orange">
-      main
+        main
       </GridItem>
     
     </Grid>
