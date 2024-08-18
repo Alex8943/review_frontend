@@ -1,43 +1,55 @@
+import React from 'react';
 import {
-  Menu,
-  MenuButton,
-  MenuList,
-  MenuItem,
   IconButton,
+  Drawer,
+  DrawerBody,
+  DrawerHeader,
+  DrawerOverlay,
+  DrawerContent,
+  DrawerCloseButton,
+  Button,
+  useDisclosure,
+  VStack,
 } from '@chakra-ui/react';
-import {
-  HamburgerIcon,
-  AddIcon,
-  ExternalLinkIcon,
-  RepeatIcon,
-  EditIcon,
-} from '@chakra-ui/icons';
+import { HamburgerIcon, AddIcon, ExternalLinkIcon, RepeatIcon, EditIcon } from '@chakra-ui/icons';
 
 const Burgermenu = () => {
+  const { isOpen, onOpen, onClose } = useDisclosure();
+
   return (
-    <Menu>
-      <MenuButton
-        as={IconButton}
-        aria-label='Options'
+    <>
+      <IconButton
+        aria-label="Options"
         icon={<HamburgerIcon />}
-        variant='outline'
-        //display={{ base: 'block', md: 'block' }}
+        variant="outline"
+        onClick={onOpen}
       />
-      <MenuList>
-        <MenuItem icon={<AddIcon />} command='⌘T'>
-          New Tab
-        </MenuItem>
-        <MenuItem icon={<ExternalLinkIcon />} command='⌘N'>
-          New Window
-        </MenuItem>
-        <MenuItem icon={<RepeatIcon />} command='⌘⇧N'>
-          Open Closed Tab
-        </MenuItem>
-        <MenuItem icon={<EditIcon />} command='⌘O'>
-          Open File...
-        </MenuItem>
-      </MenuList>
-    </Menu>
+
+      <Drawer placement="left" onClose={onClose} isOpen={isOpen}>
+        <DrawerOverlay />
+        <DrawerContent>
+          <DrawerCloseButton />
+          <DrawerHeader>Menu</DrawerHeader>
+
+          <DrawerBody>
+            <VStack align="start">
+              <Button leftIcon={<AddIcon />} variant="ghost" w="100%">
+                New Tab
+              </Button>
+              <Button leftIcon={<ExternalLinkIcon />} variant="ghost" w="100%">
+                New Window
+              </Button>
+              <Button leftIcon={<RepeatIcon />} variant="ghost" w="100%">
+                Open Closed Tab
+              </Button>
+              <Button leftIcon={<EditIcon />} variant="ghost" w="100%">
+                Open File...
+              </Button>
+            </VStack>
+          </DrawerBody>
+        </DrawerContent>
+      </Drawer>
+    </>
   );
 };
 
