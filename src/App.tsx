@@ -1,36 +1,38 @@
-import React from 'react'
-import { Grid, GridItem, Show } from '@chakra-ui/react'
-import NavBar from "./components/NavBar" 
-import Burgermenu from "./components/Burgermenu"
-import LoginButton from "./components/login_button"
-
+import React from 'react';
+import { Grid, GridItem, Show, Flex, Box } from '@chakra-ui/react';
+import NavBar from './components/NavBar';
+import Burgermenu from './components/Burgermenu';
+import LoginButton from './components/login_button';
+import Footer from './components/navigation/footer';
 
 function App() {
-  
-
   return (
-    <Grid
-      templateAreas={{
-        base: `"nav" "main"`,
-        lg: `"nav nav" "aside main"`,
-      }}
+    <Flex direction="column" minHeight="100vh">
+      <Grid
+        templateAreas={{
+          base: `"nav" "main"`,
+          lg: `"nav nav" "aside main"`,
+        }}
       >
-
-      <GridItem gridArea="nav">
-      <NavBar/>
+        <GridItem gridArea="nav">
+          <NavBar />
+        </GridItem>
+        <Show above="lg">
+          <GridItem gridArea="aside">
+            <Burgermenu />
+          </GridItem>
+        </Show>
+        <GridItem gridArea="main">
+          <LoginButton />
+        </GridItem>
+      </Grid>
+      <GridItem gridArea="footer">
+        
+          <Footer />
+      
       </GridItem>
-      <Show above="lg">
-      <GridItem gridArea="aside">
-      <Burgermenu/>
-      </GridItem>
-      </Show>
-      <GridItem gridArea="main">
-        <LoginButton/>
-      </GridItem>
-    
-    </Grid>
-    
-  )
+    </Flex>
+  );
 }
 
-export default App
+export default App;
