@@ -1,4 +1,4 @@
-import { Flex, Box, Link, Text, Icon, HStack, VStack } from '@chakra-ui/react';
+import { Flex, Box, Link, Text, Icon, HStack, Grid } from '@chakra-ui/react';
 import { FaLinkedin } from 'react-icons/fa';
 
   const footer = () => {

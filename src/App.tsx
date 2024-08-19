@@ -13,6 +13,9 @@ function App() {
           base: `"nav" "main"`,
           lg: `"nav nav" "aside main"`,
         }}
+        flex="1"
+        alignContent="start"
+       
       >
         <GridItem gridArea="nav">
           <NavBar />
@@ -26,10 +29,10 @@ function App() {
           <LoginButton />
         </GridItem>
       </Grid>
-      <GridItem gridArea="footer">
-        
+      <GridItem>
+      <Box mt="auto">
           <Footer />
-      
+        </Box>
       </GridItem>
     </Flex>
   );
