@@ -8,12 +8,12 @@ import { FaLinkedin } from 'react-icons/fa';
           <Box as="footer" py={4} bg="teal.500" color="white">
             <HStack justifyContent="center" spacing={4}>
               <Text>Connect with me:</Text>
-              <Link href="https://www.linkedin.com/in/your-profile" isExternal>
+              <Link href="https://www.linkedin.com/in/alexander-stohn-a54b241a3/" isExternal>
                 <Icon as={FaLinkedin} boxSize={6} />
               </Link>
             </HStack>
             <Text textAlign="center" mt={2}>
-              © {new Date().getFullYear()} Your Name. All rights reserved.
+              © {new Date().getFullYear()} All rights reserved.
             </Text>
           </Box>
     )
