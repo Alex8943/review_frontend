@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { getAllReviews } from "../service/apiclient";
 import { Box, Text, VStack } from "@chakra-ui/react";
 import Login from "./login_button";
+import SearchBar from "./navigation/Searchbar";
 
 const Home = () => {
   // State to hold the fetched reviews
@@ -22,14 +23,14 @@ const Home = () => {
       }
     };
 
-    // Call the function to fetch reviews when the component mounts
     fetchReviews();
   }, []);
 
   return (
     <>
       <Login />
-      {/* Display the reviews */}
+      
+        <SearchBar />
       <VStack spacing={4} align="start" p={4}>
         {reviews.length > 0 ? (
           reviews.map((review, index) => (
