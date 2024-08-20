@@ -4,6 +4,8 @@ import NavBar from "./components/navigation/NavBar";
 import Burgermenu from './components/Burgermenu';
 import LoginButton from './components/login_button';
 import Footer from './components/navigation/footer';
+import Home from './components/Home';
+
 
 function App() {
   return (
@@ -26,7 +28,7 @@ function App() {
           </GridItem>
         </Show>
         <GridItem gridArea="main">
-          <LoginButton />
+          <Home />
         </GridItem>
       </Grid>
       <GridItem>
