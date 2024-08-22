@@ -12,3 +12,17 @@ export const getAllReviews = async () => {
     throw error;
   }
 };
+
+
+const getReviewTitle = `${import.meta.env.VITE_BACKEND_URL}/reviews/title`;
+
+export const getReviewByTitle = async (title) => {
+  try {
+    const response = await axios.get(`${getReviewTitle}/${title}`);
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching reviews:', error);
+    throw error;
+  }
+};
+
