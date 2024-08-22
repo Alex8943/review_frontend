@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Input, InputGroup, Icon, InputRightElement } from "@chakra-ui/react";
+import { Input, InputGroup, Icon, InputRightElement, VStack } from "@chakra-ui/react";
 import { SearchIcon } from "@chakra-ui/icons";
 import { getReviewByTitle } from "../../service/apiclient";
 
@@ -25,6 +25,15 @@ const SearchBar = ({ onSearchResult }) => {
   };
 
   return (
+
+      <>
+      <VStack
+        spacing={8}
+        mt={8}
+        
+      >
+
+
     <InputGroup size={inputSize} width="50%">
       <InputRightElement pointerEvents="none">
         <Icon as={SearchIcon} color="gray.400" />
@@ -39,6 +48,9 @@ const SearchBar = ({ onSearchResult }) => {
         onChange={handleInputChange}
       />
     </InputGroup>
+    </VStack>
+    </>
+   
   );
 };
 
