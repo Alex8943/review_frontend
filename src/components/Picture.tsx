@@ -6,14 +6,15 @@ const Picture = () => {
         <VStack
             spacing={8}
             mt={8}
+            w="100%"
         >
         <Stack>
             
             <Image
                 src={coolPic}
                 alt='Cool Pic'
-                width='1600px'
-                height='400px'
+                width='1700px'
+                height='500px'
                 objectFit='cover'
                 
             />

@@ -1,4 +1,5 @@
 import React from 'react';
+import { VStack } from '@chakra-ui/react';
 import {
   Button,
   Stack,
@@ -65,6 +66,11 @@ const LoginButton = () => {
 
   return (
     <>
+    <VStack
+      spacing={8}
+      mt={8}
+      >
+     
       <Stack direction="row" spacing={4} align="center">
         <Button colorScheme="teal" variant="outline" onClick={onLoginOpen}>
           Login
@@ -76,6 +82,8 @@ const LoginButton = () => {
 
       <Login isOpen={isLoginOpen} onClose={onLoginClose} />
       <SignUp isOpen={isSignUpOpen} onClose={onSignUpClose} />
+
+      </VStack>
     </>
   );
 };

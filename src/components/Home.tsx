@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { getAllReviews } from "../service/apiclient";
-import { Box, Text, VStack } from "@chakra-ui/react";
+import { Box, Text, VStack, Flex } from "@chakra-ui/react";
 import Login from "./login_button";
 import SearchBar from "./navigation/Searchbar";
 import Picture from "./Picture";
@@ -33,49 +33,56 @@ const Home = () => {
 
   return (
     <>
-      <Login />
+      
       <Picture />
       
       <SearchBar onSearchResult={handleSearchResult} />
-      <VStack
-        align="start" 
-        spacing={8}  
-        ml={8}  
-        mt={4}
+      <Login />
+      <Flex
+        justify="center" // Centers content horizontally
+        align="center"   // Centers content vertically
+        //minH="100vh"     // Takes up the full height of the viewport
+        p={4}            // Adds padding around the content
       >
-        {reviews.length > 0 ? (
-          reviews.map((review, index) => (
-            <Box
-              key={index}
-              p={4}
-              borderWidth="1px"
-              borderRadius="md"
-              boxShadow="md"
-              maxW="500px"  
-              overflow="hidden"  
-            >
-              <Text
-                fontWeight="bold"
-                isTruncated  
-                fontSize="lg"
-                mb={2} 
+        <VStack
+          spacing={8}  // Space between each review
+          w={{ base: "90%", md: "60%", lg: "50%" }}  // Responsive width for mobile, tablet, and desktop
+          maxW="500px"  // Maximum width of the container
+        >
+          {reviews.length > 0 ? (
+            reviews.map((review, index) => (
+              <Box
+                key={index}
+                p={4}
+                borderWidth="1px"
+                borderRadius="md"
+                boxShadow="md"
+                w="100%"  // Takes up full width of the container
+                overflow="hidden"
               >
-                {review.title}
-              </Text>
-              <Text
-                noOfLines={3} 
-                color="gray.600"
-              >
-                {review.description}
-              </Text>
-            </Box>
-          ))
-        ) : (
-          <p>No reviews found.</p>
-        )}
-      </VStack>
+                <Text
+                  fontWeight="bold"
+                  isTruncated  
+                  fontSize="lg"
+                  mb={2} 
+                >
+                  {review.title}
+                </Text>
+                <Text
+                  noOfLines={3} 
+                  color="gray.600"
+                >
+                  {review.description}
+                </Text>
+              </Box>
+            ))
+          ) : (
+            <Text>No reviews found.</Text>
+          )}
+        </VStack>
+      </Flex>
     </>
   );
 };
 
-export default Home;
+export default Home; 
